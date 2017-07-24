@@ -1,0 +1,32 @@
+create database if not exists `library`;
+use `library`;
+
+
+drop table if exists `books`;
+drop table if exists `users`;
+
+
+create table `users` (
+				user_id int(5) not null auto_increment, 
+				name varchar(255),
+				passport varchar(255),
+				phone varchar(255),
+				email varchar(255), 
+				role varchar(255), 
+				login varchar(255), 
+				password varchar(255), 
+				status varchar(255),
+                PRIMARY KEY (user_id));                       
+                
+
+
+create table `books` (
+				book_id int(5) not null auto_increment, 
+				title varchar(255), 				
+				author varchar(255), 
+				description varchar(255), 
+				status varchar(255), 
+				user_id int(5),
+                PRIMARY KEY (book_id)
+             -- , FOREIGN KEY (user_id) REFERENCES users(user_id)
+				);            

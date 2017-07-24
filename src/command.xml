@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<library xmlns="http://www.epam.library.com/command"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.epam.library.com/command command.xsd" >
+          
+	<command name="sign_in">com.epam.liavitskaya.main.controller.command.impl.SignIn
+	</command>
+	<command name="sign_out">com.epam.liavitskaya.main.controller.command.impl.SignOut
+	</command>
+	<command name="registration">com.epam.liavitskaya.main.controller.command.impl.Registration
+	</command>
+	<command name="change_status">com.epam.liavitskaya.main.controller.command.impl.ChangeStatus
+	</command>
+	<command name="change_role">com.epam.liavitskaya.main.controller.command.impl.ChangeRole
+	</command>
+	<command name="make_admin_user">com.epam.liavitskaya.main.controller.command.impl.MakeAdminUser
+	</command>
+	<command name="add_book">com.epam.liavitskaya.main.controller.command.impl.AddBook
+	</command>
+	<command name="order_book">com.epam.liavitskaya.main.controller.command.impl.OrderBook
+	</command>
+	<command name="cancel_order">com.epam.liavitskaya.main.controller.command.impl.CancelOrder
+	</command>
+	<command name="review_profile">com.epam.liavitskaya.main.controller.command.impl.ReviewProfile
+	</command>
+	<command name="review_profile_id">com.epam.liavitskaya.main.controller.command.impl.ReviewProfileById
+	</command>
+	<command name="edit_profile">com.epam.liavitskaya.main.controller.command.impl.EditProfile
+	</command>
+	<command name="edit_book">com.epam.liavitskaya.main.controller.command.impl.EditBook
+	</command>
+	<command name="edit_book_description">com.epam.liavitskaya.main.controller.command.impl.EditBookDescription
+	</command>
+	<command name="write_off_book">com.epam.liavitskaya.main.controller.command.impl.WriteOffBook
+	</command>
+	<command name="show_all_book">com.epam.liavitskaya.main.controller.command.impl.ShowAllBook
+	</command>
+	<command name="show_all_available_book">com.epam.liavitskaya.main.controller.command.impl.ShowAllAvailableBook
+	</command>
+	<command name="show_all_user">com.epam.liavitskaya.main.controller.command.impl.ShowAllUser
+	</command>
+	<command name="wrong_request">com.epam.liavitskaya.main.controller.command.impl.WrongRequest
+	</command>
+</library>
