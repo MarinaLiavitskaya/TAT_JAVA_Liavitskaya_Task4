@@ -15,7 +15,7 @@ import java.util.List;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 
-public class XMLDataProviderServerTest {
+public class XMLDataProviderTest {
 
 	static final String XML_PATH_BOOK = "resources/test_book.xml";
 	static final String XML_PATH_USER = "resources/test_user.xml";

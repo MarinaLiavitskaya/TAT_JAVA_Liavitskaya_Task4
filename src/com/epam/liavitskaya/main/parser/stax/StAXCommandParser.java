@@ -14,7 +14,7 @@ import com.epam.liavitskaya.main.parser.Parser;
 
 public class StAXCommandParser implements Parser {
 
-	static final String COMMAND_XML_PATH = "src/command.xml";
+	static final String COMMAND_XML_PATH = "resources/command.xml";
 
 	@Override
 	public Map<String, String> parseXML() {

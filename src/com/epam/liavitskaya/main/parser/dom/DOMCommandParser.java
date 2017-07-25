@@ -14,7 +14,7 @@ import com.sun.org.apache.xerces.internal.parsers.DOMParser;
 
 public class DOMCommandParser implements Parser {
 	
-	static final String COMMAND_XML_PATH = "src/command.xml";
+	static final String COMMAND_XML_PATH = "resources/command.xml";
 	
 	@Override
 	public Map<String, String> parseXML() {

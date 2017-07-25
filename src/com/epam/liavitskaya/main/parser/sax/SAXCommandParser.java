@@ -13,7 +13,7 @@ import com.epam.liavitskaya.main.parser.Parser;
 
 public class SAXCommandParser implements Parser {
 
-	static final String COMMAND_XML_PATH = "src/command.xml";
+	static final String COMMAND_XML_PATH = "resources/command.xml";
 
 	private Map<String, String> commandMap = new HashMap<>();
 
