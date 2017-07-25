@@ -13,8 +13,7 @@ import com.epam.liavitskaya.main.server.Server;
 
 public class ServerTest {
 	
-	Controller controller;
-	Server server;
+	Controller controller;	
 	
 	@Test(dataProvider = "user_dataProvider", threadPoolSize = 2, invocationCount = 1, timeOut = 1000, priority = 0)
 	public void test_user_Server(String request, String expected) {

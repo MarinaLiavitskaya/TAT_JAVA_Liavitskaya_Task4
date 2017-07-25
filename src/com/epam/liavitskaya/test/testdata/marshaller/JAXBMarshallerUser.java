@@ -1,0 +1,67 @@
+package com.epam.liavitskaya.test.testdata.marshaller;
+
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.util.ArrayList;
+
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
+
+import com.epam.liavitskaya.test.testdata.entity.UserTest;
+import com.epam.liavitskaya.test.testdata.entity.UsersTest;
+
+public class JAXBMarshallerUser {
+
+	public static void marshallUser() {
+
+		try {
+			JAXBContext context = JAXBContext.newInstance(UsersTest.class);
+			Marshaller marshaller = context.createMarshaller();
+
+			UsersTest usersTest = new UsersTest();
+			usersTest.setUsers(new ArrayList<UserTest>());
+
+			UserTest userTest1 = new UserTest();
+			userTest1.setUserName("Marina");
+			userTest1.setPassportNo("MP3798891");
+			userTest1.setPhone("297781991");
+			userTest1.setEmail("email@marina");
+			userTest1.setUserRole("USER");
+			userTest1.setLogin("marina_test00");
+			userTest1.setPassword("encryptTest@00");
+			userTest1.setUserStatus("ACTIVE");
+
+			UserTest userTest2 = new UserTest();
+			userTest2.setUserName("Juras");
+			userTest2.setPassportNo("MP2306723");
+			userTest2.setPhone("297702722");
+			userTest2.setEmail("email@juras");
+			userTest2.setUserRole("USER");
+			userTest2.setLogin("juras_test00");
+			userTest2.setPassword("encryptTest@22");
+			userTest2.setUserStatus("ACTIVE");
+						
+			UserTest userTest3 = new UserTest();
+			userTest3.setUserName("Bob");
+			userTest3.setPassportNo("MP7777777");
+			userTest3.setPhone("297777777");
+			userTest3.setEmail("email@77777");
+			userTest3.setUserRole("USER");
+			userTest3.setLogin("user_test777");
+			userTest3.setPassword("encryptT@777");
+			userTest3.setUserStatus("ACTIVE");
+
+			usersTest.getUsers().add(userTest1);
+			usersTest.getUsers().add(userTest2);
+			usersTest.getUsers().add(userTest3);
+
+			marshaller.marshal(usersTest, new FileOutputStream("resources/test_user.xml"));					
+			
+		} catch (JAXBException | FileNotFoundException e) {		
+			e.printStackTrace();
+		}
+
+	}
+
+}

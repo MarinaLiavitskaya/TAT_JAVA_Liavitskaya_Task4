@@ -39,11 +39,10 @@ public class StAXCommandParser implements Parser {
 
 				switch (type) {
 				case XMLStreamConstants.START_ELEMENT:
-					commandName = reader.getAttributeValue(0).trim();
-					System.out.println("START_ELEMENT " + commandName);
+					commandName = reader.getAttributeValue(0).trim();					
 					reader.next();
 					commandPath = reader.getText().trim();
-					if (commandPath.equals("") || commandName.equals("")) {
+					if ("".equals(commandPath) || "".equals(commandName)) {
 						continue;
 					}
 					break;

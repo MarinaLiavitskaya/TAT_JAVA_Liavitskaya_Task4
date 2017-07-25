@@ -4,15 +4,21 @@ import java.io.Serializable;
 
 import com.epam.liavitskaya.main.enumeration.BookStatus;
 
+
 public class Book implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-
-	private int bookId;
-	private String title;
-	private String author;
-	private String description;
-	private BookStatus bookStatus;
+	
+	private int bookId;	
+	
+	private String title;	
+	
+	private String author;	
+	
+	private String description;	
+	
+	private BookStatus bookStatus;	
+	
 	private int userId;
 
 	public Book() {
@@ -138,7 +144,7 @@ public class Book implements Serializable {
 
 	@Override
 	public String toString() {
-		return "\nBook [title = " + title + ", author = " + author + ", description = " + description + ", bookStatus = "
-				+ bookStatus + "]";
+		return "\nBook [title = " + title + ", author = " + author + ", description = " + description
+				+ ", bookStatus = " + bookStatus + "]";
 	}
 }
