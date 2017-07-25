@@ -1,4 +1,4 @@
-package com.epam.liavitskaya.test.testdata.unmarshaller;
+package com.epam.liavitskaya.test.xmldata.unmarshaller;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -7,7 +7,7 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 
-import com.epam.liavitskaya.test.testdata.entity.BooksTest;
+import com.epam.liavitskaya.test.xmldata.beantest.BooksTest;
 
 public class JAXBUnMarshallerBook {
 

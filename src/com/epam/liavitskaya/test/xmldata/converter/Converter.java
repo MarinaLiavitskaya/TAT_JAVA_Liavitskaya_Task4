@@ -1,20 +1,20 @@
-package com.epam.liavitskaya.test.testdata.converter;
+package com.epam.liavitskaya.test.xmldata.converter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.epam.liavitskaya.test.testdata.entity.BookTest;
-import com.epam.liavitskaya.test.testdata.entity.BooksTest;
-import com.epam.liavitskaya.test.testdata.entity.UserTest;
-import com.epam.liavitskaya.test.testdata.entity.UsersTest;
-import com.epam.liavitskaya.test.testdata.marshaller.JAXBMarshallerBook;
-import com.epam.liavitskaya.test.testdata.marshaller.JAXBMarshallerUser;
-import com.epam.liavitskaya.test.testdata.unmarshaller.JAXBUnMarshallerBook;
-import com.epam.liavitskaya.test.testdata.unmarshaller.JAXBUnMarshallerUser;
+import com.epam.liavitskaya.test.xmldata.beantest.BookTest;
+import com.epam.liavitskaya.test.xmldata.beantest.BooksTest;
+import com.epam.liavitskaya.test.xmldata.beantest.UserTest;
+import com.epam.liavitskaya.test.xmldata.beantest.UsersTest;
+import com.epam.liavitskaya.test.xmldata.marshaller.JAXBMarshallerBook;
+import com.epam.liavitskaya.test.xmldata.marshaller.JAXBMarshallerUser;
+import com.epam.liavitskaya.test.xmldata.unmarshaller.JAXBUnMarshallerBook;
+import com.epam.liavitskaya.test.xmldata.unmarshaller.JAXBUnMarshallerUser;
 
 public class Converter {
 
-	public static List<String> convertToRequestArgs(String xmlPath) {
+	public static List<String> convertXMLToRequestArgs(String xmlPath) {
 
 		String xmlType = xmlPath.substring(xmlPath.indexOf("_") + 1, xmlPath.indexOf("."));
 		List<String> requestArgs = new ArrayList<>();

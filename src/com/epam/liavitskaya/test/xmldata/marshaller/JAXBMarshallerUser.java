@@ -1,4 +1,4 @@
-package com.epam.liavitskaya.test.testdata.marshaller;
+package com.epam.liavitskaya.test.xmldata.marshaller;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -8,8 +8,8 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 
-import com.epam.liavitskaya.test.testdata.entity.UserTest;
-import com.epam.liavitskaya.test.testdata.entity.UsersTest;
+import com.epam.liavitskaya.test.xmldata.beantest.UserTest;
+import com.epam.liavitskaya.test.xmldata.beantest.UsersTest;
 
 public class JAXBMarshallerUser {
 
@@ -43,7 +43,7 @@ public class JAXBMarshallerUser {
 			userTest2.setUserStatus("ACTIVE");
 						
 			UserTest userTest3 = new UserTest();
-			userTest3.setUserName("Bob");
+			userTest3.setUserName("Natalie");
 			userTest3.setPassportNo("MP7777777");
 			userTest3.setPhone("297777777");
 			userTest3.setEmail("email@77777");

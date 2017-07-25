@@ -1,4 +1,4 @@
-package com.epam.liavitskaya.test.testdata.entity;
+package com.epam.liavitskaya.test.xmldata.beantest;
 
 import java.util.List;
 

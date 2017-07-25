@@ -1,1 +1,38 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Books><books bookId="0"><title>Breakfast_of_Champions</title><author>Kurt_Vonnegut</author><description>US_1973</description><bookStatus>AVAILABLE</bookStatus><userId>0</userId></books><books bookId="0"><title>One_Flew_Over_the_Cuckoo's_Nest</title><author>Ken_Kesey</author><description>US_1962</description><bookStatus>AVAILABLE</bookStatus><userId>0</userId></books><books bookId="0"><title>Flowers_for_Algernon</title><author>Daniel_Keyes</author><description>US_1958</description><bookStatus>AVAILABLE</bookStatus><userId>0</userId></books><books bookId="0"><title>LOLITA</title><author>VLADIMIR_NABOKOV</author><description>RUSSIA</description><bookStatus>AVAILABLE</bookStatus><userId>0</userId></books></Books>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Books>
+	<books bookId="0">
+		<title>Breakfast_of_Champions</title>
+		<author>Kurt_Vonnegut</author>
+		<description>US_1973</description>
+		<bookStatus>AVAILABLE</bookStatus>
+		<userId>0</userId>
+	</books>
+	<books bookId="0">
+		<title>One_Flew_Over_the_Cuckoo's_Nest</title>
+		<author>Ken_Kesey</author>
+		<description>US_1962</description>
+		<bookStatus>AVAILABLE</bookStatus>
+		<userId>0</userId>
+	</books>
+	<books bookId="0">
+		<title>Flowers_for_Algernon</title>
+		<author>Daniel_Keyes</author>
+		<description>US_1958</description>
+		<bookStatus>AVAILABLE</bookStatus>
+		<userId>0</userId>
+	</books>
+	<books bookId="0">
+		<title>Lolita</title>
+		<author>Vladimir_Nabokov</author>
+		<description>Russia</description>
+		<bookStatus>AVAILABLE</bookStatus>
+		<userId>0</userId>
+	</books>
+	<books bookId="0">
+		<title>Anna Karenina</title>
+		<author>Leo_Tolstoy</author>
+		<description>Russia_1877</description>
+		<bookStatus>AVAILABLE</bookStatus>
+		<userId>0</userId>
+	</books>
+</Books>
