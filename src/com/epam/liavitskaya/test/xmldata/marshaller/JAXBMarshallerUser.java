@@ -8,10 +8,14 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 
-import com.epam.liavitskaya.test.xmldata.beantest.UserTest;
-import com.epam.liavitskaya.test.xmldata.beantest.UsersTest;
+import org.apache.log4j.Logger;
+
+import com.epam.liavitskaya.test.xmldata.testentity.UserTest;
+import com.epam.liavitskaya.test.xmldata.testentity.UsersTest;
 
 public class JAXBMarshallerUser {
+
+	static final Logger logger = Logger.getLogger(JAXBMarshallerUser.class);
 
 	public static void marshallUser() {
 
@@ -41,7 +45,7 @@ public class JAXBMarshallerUser {
 			userTest2.setLogin("juras_test00");
 			userTest2.setPassword("encryptTest@22");
 			userTest2.setUserStatus("ACTIVE");
-						
+
 			UserTest userTest3 = new UserTest();
 			userTest3.setUserName("Natalie");
 			userTest3.setPassportNo("MP7777777");
@@ -56,10 +60,10 @@ public class JAXBMarshallerUser {
 			usersTest.getUsers().add(userTest2);
 			usersTest.getUsers().add(userTest3);
 
-			marshaller.marshal(usersTest, new FileOutputStream("resources/test_user.xml"));					
-			
-		} catch (JAXBException | FileNotFoundException e) {		
-			e.printStackTrace();
+			marshaller.marshal(usersTest, new FileOutputStream("resources/test_user.xml"));
+
+		} catch (JAXBException | FileNotFoundException e) {
+			logger.error("error during marshalling users", e);
 		}
 
 	}

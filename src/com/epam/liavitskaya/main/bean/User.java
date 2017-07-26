@@ -6,17 +6,25 @@ import com.epam.liavitskaya.main.enumeration.UserRoles;
 import com.epam.liavitskaya.main.enumeration.UserStatus;
 
 public class User implements Serializable {
-
-	private static final long serialVersionUID = 1L;
+	
+	private static final long serialVersionUID = 2622982783387894434L;
 
 	private int userId;
+	
 	private String userName;
+	
 	private String passportNo;
+	
 	private String phone;
+	
 	private String email;
+	
 	private UserRoles userRole;
+	
 	private String login;
+	
 	private String password;
+	
 	private UserStatus userStatus;
 
 	public User() {
@@ -47,10 +55,10 @@ public class User implements Serializable {
 		this.login = login;
 		this.password = password;
 		this.userStatus = userStatus;
-	}	
+	}
 
 	public User(int userId, String userName, String passportNo, String phone, String email, String login,
-			String password) {	
+			String password) {
 		this.userId = userId;
 		this.userName = userName;
 		this.passportNo = passportNo;
@@ -144,7 +152,7 @@ public class User implements Serializable {
 	public void setUserStatus(String userStatus) {
 		this.userStatus = UserStatus.valueOf(userStatus);
 	}
-	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -211,8 +219,9 @@ public class User implements Serializable {
 
 	@Override
 	public String toString() {
-		return "\nUser [userName = " + userName + ", userPassportNo = " + passportNo + ", phone = " + phone + ", email = "
-				+ email + ", userRole = " + userRole + ", login = " + login + ", userStatus = " + userStatus + "]";
+		return "\nUser [userName = " + userName + ", userPassportNo = " + passportNo + ", phone = " + phone
+				+ ", email = " + email + ", userRole = " + userRole + ", login = " + login + ", userStatus = "
+				+ userStatus + "]";
 	}
 
 }

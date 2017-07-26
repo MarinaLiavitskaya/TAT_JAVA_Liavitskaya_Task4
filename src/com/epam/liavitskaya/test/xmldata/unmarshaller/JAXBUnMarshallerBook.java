@@ -7,21 +7,25 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 
-import com.epam.liavitskaya.test.xmldata.beantest.BooksTest;
+import org.apache.log4j.Logger;
+
+import com.epam.liavitskaya.test.xmldata.testentity.BooksTest;
 
 public class JAXBUnMarshallerBook {
 
+	static final Logger logger = Logger.getLogger(JAXBUnMarshallerBook.class);
+
 	public static BooksTest unMarsall(String path) {
-		
+
 		BooksTest booksTest = null;
 
 		try {
 			JAXBContext context = JAXBContext.newInstance(BooksTest.class);
 			Unmarshaller unmarshaller = context.createUnmarshaller();
-			booksTest = (BooksTest) unmarshaller.unmarshal(new FileInputStream("resources/test_book.xml"));
-	
+			booksTest = (BooksTest) unmarshaller.unmarshal(new FileInputStream(path));
+
 		} catch (FileNotFoundException | JAXBException e) {
-			e.printStackTrace();
+			logger.error("error during unmarshalling books", e);
 		}
 		return booksTest;
 	}

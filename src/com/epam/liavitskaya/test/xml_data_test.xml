@@ -7,7 +7,7 @@
 
 		<classes>
 			<class
-				name="com.epam.liavitskaya.test.server.XMLDataProviderTest" />
+				name="com.epam.liavitskaya.test.xmldata.XMLDataTest" />
 		</classes>
 
 	</test>

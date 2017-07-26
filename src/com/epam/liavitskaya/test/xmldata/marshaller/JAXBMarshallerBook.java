@@ -8,10 +8,14 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 
-import com.epam.liavitskaya.test.xmldata.beantest.BookTest;
-import com.epam.liavitskaya.test.xmldata.beantest.BooksTest;
+import org.apache.log4j.Logger;
+
+import com.epam.liavitskaya.test.xmldata.testentity.BookTest;
+import com.epam.liavitskaya.test.xmldata.testentity.BooksTest;
 
 public class JAXBMarshallerBook {
+
+	static final Logger logger = Logger.getLogger(JAXBMarshallerBook.class);
 
 	public static void marshallBook() {
 
@@ -43,16 +47,16 @@ public class JAXBMarshallerBook {
 			book3.setAuthor("Daniel_Keyes");
 			book3.setDescription("US_1958");
 			book3.setBookStatus("AVAILABLE");
-			book3.setUserId(0);					
-			
+			book3.setUserId(0);
+
 			BookTest book4 = new BookTest();
 			book4.setBookId(0);
-			book4.setTitle("Lolita");
-			book4.setAuthor("Vladimir_Nabokov");
-			book4.setDescription("Russia");
+			book4.setTitle("LOLITA");
+			book4.setAuthor("VLADIMIR_NABOKOV");
+			book4.setDescription("RUSSIA");
 			book4.setBookStatus("AVAILABLE");
 			book4.setUserId(0);
-			 
+
 			BookTest book5 = new BookTest();
 			book5.setBookId(0);
 			book5.setTitle("Anna Karenina");
@@ -60,20 +64,20 @@ public class JAXBMarshallerBook {
 			book5.setDescription("Russia_1877");
 			book5.setBookStatus("AVAILABLE");
 			book5.setUserId(0);
-			
-			BooksTest booksTest = new BooksTest(); 
+
+			BooksTest booksTest = new BooksTest();
 			booksTest.setBooks(new ArrayList<BookTest>());
-			
+
 			booksTest.getBooks().add(book1);
 			booksTest.getBooks().add(book2);
 			booksTest.getBooks().add(book3);
 			booksTest.getBooks().add(book4);
 			booksTest.getBooks().add(book5);
-			
-			marshaller.marshal(booksTest, new FileOutputStream("resources/test_book.xml"));						
+
+			marshaller.marshal(booksTest, new FileOutputStream("resources/test_book.xml"));
 
 		} catch (JAXBException | FileNotFoundException e) {
-			e.printStackTrace();
+			logger.error("error during marshalling books", e);
 		}
 	}
 

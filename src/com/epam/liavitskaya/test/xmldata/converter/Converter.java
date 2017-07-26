@@ -3,12 +3,12 @@ package com.epam.liavitskaya.test.xmldata.converter;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.epam.liavitskaya.test.xmldata.beantest.BookTest;
-import com.epam.liavitskaya.test.xmldata.beantest.BooksTest;
-import com.epam.liavitskaya.test.xmldata.beantest.UserTest;
-import com.epam.liavitskaya.test.xmldata.beantest.UsersTest;
 import com.epam.liavitskaya.test.xmldata.marshaller.JAXBMarshallerBook;
 import com.epam.liavitskaya.test.xmldata.marshaller.JAXBMarshallerUser;
+import com.epam.liavitskaya.test.xmldata.testentity.BookTest;
+import com.epam.liavitskaya.test.xmldata.testentity.BooksTest;
+import com.epam.liavitskaya.test.xmldata.testentity.UserTest;
+import com.epam.liavitskaya.test.xmldata.testentity.UsersTest;
 import com.epam.liavitskaya.test.xmldata.unmarshaller.JAXBUnMarshallerBook;
 import com.epam.liavitskaya.test.xmldata.unmarshaller.JAXBUnMarshallerUser;
 

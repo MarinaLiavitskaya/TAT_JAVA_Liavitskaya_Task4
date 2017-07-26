@@ -5,10 +5,10 @@ import java.io.Serializable;
 import com.epam.liavitskaya.main.enumeration.BookStatus;
 
 
-public class Book implements Serializable {
-
-	private static final long serialVersionUID = 1L;
+public class Book implements Serializable {		
 	
+	private static final long serialVersionUID = 6358225220968981681L;
+
 	private int bookId;	
 	
 	private String title;	

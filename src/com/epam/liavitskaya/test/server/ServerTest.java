@@ -8,12 +8,9 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import com.epam.liavitskaya.main.controller.Controller;
 import com.epam.liavitskaya.main.server.Server;
 
-public class ServerTest {
-	
-	Controller controller;	
+public class ServerTest {	
 	
 	@Test(dataProvider = "user_dataProvider", threadPoolSize = 2, invocationCount = 1, timeOut = 1000, priority = 0)
 	public void test_user_Server(String request, String expected) {
@@ -89,15 +86,11 @@ public class ServerTest {
 	}
 
 	@BeforeClass
-	public void beforeClass() {
-		
-		controller = Controller.getInstance();	
-		
+	public void beforeClass() {			
 	}
 
 	@AfterClass
 	public void afterClass() {
-
 	}
 
 }

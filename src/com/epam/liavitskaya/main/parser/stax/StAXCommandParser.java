@@ -10,9 +10,13 @@ import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 
+import org.apache.log4j.Logger;
+
 import com.epam.liavitskaya.main.parser.Parser;
 
 public class StAXCommandParser implements Parser {
+
+	static final Logger logger = Logger.getLogger(StAXCommandParser.class);
 
 	static final String COMMAND_XML_PATH = "resources/command.xml";
 
@@ -39,7 +43,7 @@ public class StAXCommandParser implements Parser {
 
 				switch (type) {
 				case XMLStreamConstants.START_ELEMENT:
-					commandName = reader.getAttributeValue(0).trim();					
+					commandName = reader.getAttributeValue(0).trim();
 					reader.next();
 					commandPath = reader.getText().trim();
 					if ("".equals(commandPath) || "".equals(commandName)) {
@@ -55,7 +59,7 @@ public class StAXCommandParser implements Parser {
 			}
 
 		} catch (FileNotFoundException | XMLStreamException e) {
-			e.printStackTrace();
+			logger.error("error during StAX parsing", e);
 		}
 		return commandMap;
 	}

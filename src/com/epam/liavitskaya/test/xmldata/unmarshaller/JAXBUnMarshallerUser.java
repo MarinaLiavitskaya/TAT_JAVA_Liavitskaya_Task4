@@ -7,9 +7,13 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 
-import com.epam.liavitskaya.test.xmldata.beantest.UsersTest;
+import org.apache.log4j.Logger;
+
+import com.epam.liavitskaya.test.xmldata.testentity.UsersTest;
 
 public class JAXBUnMarshallerUser {
+
+	static final Logger logger = Logger.getLogger(JAXBUnMarshallerUser.class);
 
 	public static UsersTest unMarshall(String path) {
 
@@ -18,10 +22,10 @@ public class JAXBUnMarshallerUser {
 		try {
 			JAXBContext context = JAXBContext.newInstance(UsersTest.class);
 			Unmarshaller unmarshaller = context.createUnmarshaller();
-			usersTest = (UsersTest) unmarshaller.unmarshal(new FileInputStream("resources/test_user.xml"));
+			usersTest = (UsersTest) unmarshaller.unmarshal(new FileInputStream(path));
 
 		} catch (FileNotFoundException | JAXBException e) {
-			e.printStackTrace();
+			logger.error("error during unmarshalling users", e);
 		}
 
 		return usersTest;
