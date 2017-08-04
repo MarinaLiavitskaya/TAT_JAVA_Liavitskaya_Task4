@@ -1,4 +1,4 @@
-package com.epam.liavitskaya.main.parser.reflection;
+package com.epam.liavitskaya.test.parser.reflection;
 
 import java.util.HashMap;
 import java.util.Map;

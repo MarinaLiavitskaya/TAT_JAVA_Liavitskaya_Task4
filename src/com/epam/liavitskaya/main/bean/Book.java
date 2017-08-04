@@ -2,23 +2,38 @@ package com.epam.liavitskaya.main.bean;
 
 import java.io.Serializable;
 
-import com.epam.liavitskaya.main.enumeration.BookStatus;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 
+import com.epam.liavitskaya.main.bean.enumeration.BookStatus;
 
-public class Book implements Serializable {		
-	
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "book", propOrder = { "title", "author", "description", "bookStatus", "userId" })
+public class Book implements Serializable {
+
 	private static final long serialVersionUID = 6358225220968981681L;
 
-	private int bookId;	
-	
-	private String title;	
-	
-	private String author;	
-	
-	private String description;	
-	
-	private BookStatus bookStatus;	
-	
+	@XmlAttribute(required = true)
+	private int bookId;
+
+	@XmlElement(required = true)
+	private String title;
+
+	@XmlElement(required = true)
+	private String author;
+
+	@XmlElement(required = true)
+	private String description;
+
+	@XmlElement(required = true)
+	private BookStatus bookStatus;
+
+	@XmlElement(required = true)
 	private int userId;
 
 	public Book() {

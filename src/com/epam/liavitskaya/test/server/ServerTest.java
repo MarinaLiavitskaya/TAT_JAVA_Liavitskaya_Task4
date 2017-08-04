@@ -8,7 +8,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import com.epam.liavitskaya.main.server.Server;
+import com.epam.liavitskaya.main.controller.server.Server;
 
 public class ServerTest {	
 	

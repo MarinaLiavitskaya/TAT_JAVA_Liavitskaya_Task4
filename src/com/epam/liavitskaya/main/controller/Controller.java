@@ -1,9 +1,9 @@
 package com.epam.liavitskaya.main.controller;
 
 import com.epam.liavitskaya.main.controller.command.Command;
-import com.epam.liavitskaya.main.parser.Parser;
-import com.epam.liavitskaya.main.parser.provider.ParserProvider;
-import com.epam.liavitskaya.main.parser.reflection.ReflectionClassLoader;
+import com.epam.liavitskaya.test.parser.Parser;
+import com.epam.liavitskaya.test.parser.provider.ParserProvider;
+import com.epam.liavitskaya.test.parser.reflection.ReflectionClassLoader;
 
 public class Controller {
 

@@ -1,7 +1,7 @@
 package com.epam.liavitskaya.main.controller;
 
 import com.epam.liavitskaya.main.bean.User;
-import com.epam.liavitskaya.main.enumeration.UserRoles;
+import com.epam.liavitskaya.main.bean.enumeration.UserRoles;
 
 public class CurrentUser {
 

@@ -10,8 +10,8 @@ import javax.xml.bind.Marshaller;
 
 import org.apache.log4j.Logger;
 
-import com.epam.liavitskaya.test.xmldata.testentity.BookTest;
-import com.epam.liavitskaya.test.xmldata.testentity.BooksTest;
+import com.epam.liavitskaya.main.bean.Book;
+import com.epam.liavitskaya.main.bean.BooksTest;
 
 public class JAXBMarshallerBook {
 
@@ -25,7 +25,7 @@ public class JAXBMarshallerBook {
 
 			Marshaller marshaller = context.createMarshaller();
 
-			BookTest book1 = new BookTest();
+			Book book1 = new Book();
 			book1.setBookId(0);
 			book1.setTitle("Breakfast_of_Champions");
 			book1.setAuthor("Kurt_Vonnegut");
@@ -33,7 +33,7 @@ public class JAXBMarshallerBook {
 			book1.setBookStatus("AVAILABLE");
 			book1.setUserId(0);
 
-			BookTest book2 = new BookTest();
+			Book book2 = new Book();
 			book2.setBookId(0);
 			book2.setTitle("One_Flew_Over_the_Cuckoo's_Nest");
 			book2.setAuthor("Ken_Kesey");
@@ -41,7 +41,7 @@ public class JAXBMarshallerBook {
 			book2.setBookStatus("AVAILABLE");
 			book2.setUserId(0);
 
-			BookTest book3 = new BookTest();
+			Book book3 = new Book();
 			book3.setBookId(0);
 			book3.setTitle("Flowers_for_Algernon");
 			book3.setAuthor("Daniel_Keyes");
@@ -49,7 +49,7 @@ public class JAXBMarshallerBook {
 			book3.setBookStatus("AVAILABLE");
 			book3.setUserId(0);
 
-			BookTest book4 = new BookTest();
+			Book book4 = new Book();
 			book4.setBookId(0);
 			book4.setTitle("LOLITA");
 			book4.setAuthor("VLADIMIR_NABOKOV");
@@ -57,7 +57,7 @@ public class JAXBMarshallerBook {
 			book4.setBookStatus("AVAILABLE");
 			book4.setUserId(0);
 
-			BookTest book5 = new BookTest();
+			Book book5 = new Book();
 			book5.setBookId(0);
 			book5.setTitle("Anna Karenina");
 			book5.setAuthor("Leo_Tolstoy");
@@ -66,7 +66,7 @@ public class JAXBMarshallerBook {
 			book5.setUserId(0);
 
 			BooksTest booksTest = new BooksTest();
-			booksTest.setBooks(new ArrayList<BookTest>());
+			booksTest.setBooks(new ArrayList<Book>());
 
 			booksTest.getBooks().add(book1);
 			booksTest.getBooks().add(book2);

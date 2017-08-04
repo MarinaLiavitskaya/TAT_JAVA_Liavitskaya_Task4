@@ -5,9 +5,9 @@ import java.util.List;
 import org.apache.log4j.Logger;
 
 import com.epam.liavitskaya.main.bean.User;
+import com.epam.liavitskaya.main.bean.enumeration.UserRoles;
 import com.epam.liavitskaya.main.controller.CurrentUser;
 import com.epam.liavitskaya.main.controller.command.Command;
-import com.epam.liavitskaya.main.enumeration.UserRoles;
 import com.epam.liavitskaya.main.service.ClientService;
 import com.epam.liavitskaya.main.service.exception.ServiceException;
 import com.epam.liavitskaya.main.service.provider.ServiceProvider;

@@ -1,4 +1,4 @@
-package com.epam.liavitskaya.main.parser.sax;
+package com.epam.liavitskaya.test.parser.sax;
 
 import java.util.HashMap;
 import java.util.Map;

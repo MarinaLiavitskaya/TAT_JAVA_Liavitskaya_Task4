@@ -1,4 +1,4 @@
-package com.epam.liavitskaya.main.parser.stax;
+package com.epam.liavitskaya.test.parser.stax;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -12,7 +12,7 @@ import javax.xml.stream.XMLStreamReader;
 
 import org.apache.log4j.Logger;
 
-import com.epam.liavitskaya.main.parser.Parser;
+import com.epam.liavitskaya.test.parser.Parser;
 
 public class StAXCommandParser implements Parser {
 

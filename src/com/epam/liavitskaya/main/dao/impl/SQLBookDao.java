@@ -8,10 +8,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.epam.liavitskaya.main.bean.Book;
+import com.epam.liavitskaya.main.bean.enumeration.BookStatus;
 import com.epam.liavitskaya.main.dao.BookDAO;
 import com.epam.liavitskaya.main.dao.exception.DAOException;
-import com.epam.liavitskaya.main.enumeration.BookStatus;
-import com.epam.liavitskaya.main.mysql.ConnectionManager;
+import com.epam.liavitskaya.main.dao.mysql.ConnectionManager;
 
 public class SQLBookDao implements BookDAO {
 
@@ -25,7 +25,10 @@ public class SQLBookDao implements BookDAO {
 	static final String SHOW_BOOK_STATUS = "SELECT status, user_id FROM books WHERE book_id = ?";	
 	static final String ROW_COUNT = "SELECT COUNT(*) FROM books";
 	static final String DELETE_BOOK = "DELETE FROM books WHERE book_id = ?";
-
+	
+	static final String BOOK_ID = "book_id";
+	static final String STATUS = "status";
+	
 	Connection connection = null;
 
 	public SQLBookDao() {
@@ -107,11 +110,11 @@ public class SQLBookDao implements BookDAO {
 
 			while (rs.next()) {
 				book = new Book();
-				book.setBookId(rs.getInt("book_id"));
+				book.setBookId(rs.getInt(BOOK_ID));
 				book.setTitle(rs.getString("title"));
 				book.setAuthor(rs.getString("author"));
 				book.setDescription(rs.getString("description"));
-				book.setBookStatus(rs.getString("status"));
+				book.setBookStatus(rs.getString(STATUS));
 				bookList.add(book);
 			}
 
@@ -138,11 +141,11 @@ public class SQLBookDao implements BookDAO {
 
 			while (rs.next()) {
 				book = new Book();
-				book.setBookId(rs.getInt("book_id"));
+				book.setBookId(rs.getInt(BOOK_ID));
 				book.setTitle(rs.getString("title"));
 				book.setAuthor(rs.getString("author"));
 				book.setDescription(rs.getString("description"));
-				book.setBookStatus(rs.getString("status"));
+				book.setBookStatus(rs.getString(STATUS));
 				availableBookList.add(book);
 			}
 
@@ -259,8 +262,9 @@ public class SQLBookDao implements BookDAO {
 			prStmt.setInt(1, id);
 			rs = prStmt.executeQuery();
 			rs.next();
-			status = BookStatus.valueOf(rs.getString("status"));
+			status = BookStatus.valueOf(rs.getString(STATUS));
 			userId = rs.getInt("user_id");			
+			
 		} catch (SQLException e) {
 			throw new DAOException(e.getMessage());
 		} finally {

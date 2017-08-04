@@ -9,7 +9,7 @@ import javax.xml.bind.Unmarshaller;
 
 import org.apache.log4j.Logger;
 
-import com.epam.liavitskaya.test.xmldata.testentity.UsersTest;
+import com.epam.liavitskaya.main.bean.UsersTest;
 
 public class JAXBUnMarshallerUser {
 

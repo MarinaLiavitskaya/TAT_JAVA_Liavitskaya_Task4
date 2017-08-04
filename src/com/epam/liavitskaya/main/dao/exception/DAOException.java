@@ -1,8 +1,8 @@
 package com.epam.liavitskaya.main.dao.exception;
 
 public class DAOException extends Exception {
-
-	private static final long serialVersionUID = 1L;
+	
+	private static final long serialVersionUID = -3544930211968158628L;
 
 	public DAOException() {
 		super();

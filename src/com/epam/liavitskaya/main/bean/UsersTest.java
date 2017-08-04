@@ -1,4 +1,4 @@
-package com.epam.liavitskaya.test.xmldata.testentity;
+package com.epam.liavitskaya.main.bean;
 
 import java.util.List;
 
@@ -12,14 +12,14 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class UsersTest {
 
 	@XmlElement(name = "users")
-	private List<UserTest> users = null;
+	private List<User> users = null;
 
-	public List<UserTest> getUsers() {
+	public List<User> getUsers() {
 		return users;
 	}
 
-	public void setUsers(List<UserTest> users) {
+	public void setUsers(List<User> users) {
 		this.users = users;
-	}	
-	
+	}
+
 }

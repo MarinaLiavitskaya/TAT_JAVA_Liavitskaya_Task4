@@ -3,8 +3,8 @@ package com.epam.liavitskaya.main.dao;
 import java.util.List;
 
 import com.epam.liavitskaya.main.bean.Book;
+import com.epam.liavitskaya.main.bean.enumeration.BookStatus;
 import com.epam.liavitskaya.main.dao.exception.DAOException;
-import com.epam.liavitskaya.main.enumeration.BookStatus;
 
 public interface BookDAO {
 

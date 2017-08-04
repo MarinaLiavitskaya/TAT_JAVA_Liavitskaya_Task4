@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.epam.liavitskaya.main.bean.Book;
+import com.epam.liavitskaya.main.bean.enumeration.BookStatus;
 import com.epam.liavitskaya.main.controller.CurrentUser;
 import com.epam.liavitskaya.main.dao.BookDAO;
 import com.epam.liavitskaya.main.dao.exception.DAOException;
 import com.epam.liavitskaya.main.dao.impl.SQLBookDao;
-import com.epam.liavitskaya.main.enumeration.BookStatus;
 import com.epam.liavitskaya.main.service.LibraryService;
 import com.epam.liavitskaya.main.service.exception.ServiceException;
 import com.epam.liavitskaya.main.util.RequestParserUtil;

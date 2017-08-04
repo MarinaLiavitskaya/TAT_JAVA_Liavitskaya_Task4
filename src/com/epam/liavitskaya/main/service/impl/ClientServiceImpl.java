@@ -6,12 +6,12 @@ import java.util.List;
 import org.apache.log4j.Logger;
 
 import com.epam.liavitskaya.main.bean.User;
+import com.epam.liavitskaya.main.bean.enumeration.UserRoles;
+import com.epam.liavitskaya.main.bean.enumeration.UserStatus;
 import com.epam.liavitskaya.main.dao.UserDAO;
 import com.epam.liavitskaya.main.dao.exception.DAOException;
 import com.epam.liavitskaya.main.dao.factory.DAOFactory;
 import com.epam.liavitskaya.main.dao.impl.SQLUserDao;
-import com.epam.liavitskaya.main.enumeration.UserRoles;
-import com.epam.liavitskaya.main.enumeration.UserStatus;
 import com.epam.liavitskaya.main.service.ClientService;
 import com.epam.liavitskaya.main.service.exception.ServiceException;
 import com.epam.liavitskaya.main.service.provider.ServiceProvider;

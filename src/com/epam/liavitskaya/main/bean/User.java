@@ -2,29 +2,49 @@ package com.epam.liavitskaya.main.bean;
 
 import java.io.Serializable;
 
-import com.epam.liavitskaya.main.enumeration.UserRoles;
-import com.epam.liavitskaya.main.enumeration.UserStatus;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 
+import com.epam.liavitskaya.main.bean.enumeration.UserRoles;
+import com.epam.liavitskaya.main.bean.enumeration.UserStatus;
+
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "user", propOrder = { "userName", "passportNo", "phone", "email", "userRole", "login", "password",
+		"userStatus" })
 public class User implements Serializable {
-	
+
 	private static final long serialVersionUID = 2622982783387894434L;
 
+	@XmlAttribute(required = true)
 	private int userId;
-	
+
+	@XmlElement(required = true)
 	private String userName;
-	
+
+	@XmlElement(required = true)
 	private String passportNo;
-	
+
+	@XmlElement(required = true)
 	private String phone;
-	
+
+	@XmlElement(required = true)
 	private String email;
-	
+
+	@XmlElement(required = true)
 	private UserRoles userRole;
-	
+
+	@XmlElement(required = true)
 	private String login;
-	
+
+	@XmlElement(required = true)
 	private String password;
-	
+
+	@XmlElement(required = true)
 	private UserStatus userStatus;
 
 	public User() {

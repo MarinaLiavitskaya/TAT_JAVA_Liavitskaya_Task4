@@ -1,4 +1,4 @@
-package com.epam.liavitskaya.main.parser.dom;
+package com.epam.liavitskaya.test.parser.dom;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -10,7 +10,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-import com.epam.liavitskaya.main.parser.Parser;
+import com.epam.liavitskaya.test.parser.Parser;
 import com.sun.org.apache.xerces.internal.parsers.DOMParser;
 
 public class DOMCommandParser implements Parser {

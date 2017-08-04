@@ -1,4 +1,4 @@
-package com.epam.liavitskaya.main.mysql;
+package com.epam.liavitskaya.main.dao.mysql;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

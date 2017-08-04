@@ -8,12 +8,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.epam.liavitskaya.main.bean.User;
+import com.epam.liavitskaya.main.bean.enumeration.UserRoles;
+import com.epam.liavitskaya.main.bean.enumeration.UserStatus;
 import com.epam.liavitskaya.main.controller.CurrentUser;
 import com.epam.liavitskaya.main.dao.UserDAO;
 import com.epam.liavitskaya.main.dao.exception.DAOException;
-import com.epam.liavitskaya.main.enumeration.UserRoles;
-import com.epam.liavitskaya.main.enumeration.UserStatus;
-import com.epam.liavitskaya.main.mysql.ConnectionManager;
+import com.epam.liavitskaya.main.dao.mysql.ConnectionManager;
 
 public class SQLUserDao implements UserDAO {
 

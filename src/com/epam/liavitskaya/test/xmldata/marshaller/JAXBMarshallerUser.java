@@ -10,8 +10,8 @@ import javax.xml.bind.Marshaller;
 
 import org.apache.log4j.Logger;
 
-import com.epam.liavitskaya.test.xmldata.testentity.UserTest;
-import com.epam.liavitskaya.test.xmldata.testentity.UsersTest;
+import com.epam.liavitskaya.main.bean.User;
+import com.epam.liavitskaya.main.bean.UsersTest;
 
 public class JAXBMarshallerUser {
 
@@ -24,9 +24,9 @@ public class JAXBMarshallerUser {
 			Marshaller marshaller = context.createMarshaller();
 
 			UsersTest usersTest = new UsersTest();
-			usersTest.setUsers(new ArrayList<UserTest>());
+			usersTest.setUsers(new ArrayList<User>());
 
-			UserTest userTest1 = new UserTest();
+			User userTest1 = new User();
 			userTest1.setUserName("Marina");
 			userTest1.setPassportNo("MP3798891");
 			userTest1.setPhone("297781991");
@@ -36,7 +36,7 @@ public class JAXBMarshallerUser {
 			userTest1.setPassword("encryptTest@00");
 			userTest1.setUserStatus("ACTIVE");
 
-			UserTest userTest2 = new UserTest();
+			User userTest2 = new User();
 			userTest2.setUserName("Juras");
 			userTest2.setPassportNo("MP2306723");
 			userTest2.setPhone("297702722");
@@ -46,7 +46,7 @@ public class JAXBMarshallerUser {
 			userTest2.setPassword("encryptTest@22");
 			userTest2.setUserStatus("ACTIVE");
 
-			UserTest userTest3 = new UserTest();
+			User userTest3 = new User();
 			userTest3.setUserName("Natalie");
 			userTest3.setPassportNo("MP7777777");
 			userTest3.setPhone("297777777");

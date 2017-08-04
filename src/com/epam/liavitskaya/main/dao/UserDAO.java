@@ -3,9 +3,9 @@ package com.epam.liavitskaya.main.dao;
 import java.util.List;
 
 import com.epam.liavitskaya.main.bean.User;
+import com.epam.liavitskaya.main.bean.enumeration.UserRoles;
+import com.epam.liavitskaya.main.bean.enumeration.UserStatus;
 import com.epam.liavitskaya.main.dao.exception.DAOException;
-import com.epam.liavitskaya.main.enumeration.UserRoles;
-import com.epam.liavitskaya.main.enumeration.UserStatus;
 
 public interface UserDAO {
 

@@ -1,4 +1,4 @@
-package com.epam.liavitskaya.main.parser;
+package com.epam.liavitskaya.test.parser;
 
 import java.util.Map;
 

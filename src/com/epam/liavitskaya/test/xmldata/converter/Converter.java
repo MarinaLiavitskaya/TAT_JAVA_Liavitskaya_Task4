@@ -3,12 +3,12 @@ package com.epam.liavitskaya.test.xmldata.converter;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.epam.liavitskaya.main.bean.Book;
+import com.epam.liavitskaya.main.bean.BooksTest;
+import com.epam.liavitskaya.main.bean.User;
+import com.epam.liavitskaya.main.bean.UsersTest;
 import com.epam.liavitskaya.test.xmldata.marshaller.JAXBMarshallerBook;
 import com.epam.liavitskaya.test.xmldata.marshaller.JAXBMarshallerUser;
-import com.epam.liavitskaya.test.xmldata.testentity.BookTest;
-import com.epam.liavitskaya.test.xmldata.testentity.BooksTest;
-import com.epam.liavitskaya.test.xmldata.testentity.UserTest;
-import com.epam.liavitskaya.test.xmldata.testentity.UsersTest;
 import com.epam.liavitskaya.test.xmldata.unmarshaller.JAXBUnMarshallerBook;
 import com.epam.liavitskaya.test.xmldata.unmarshaller.JAXBUnMarshallerUser;
 
@@ -24,7 +24,7 @@ public class Converter {
 			JAXBMarshallerBook.marshallBook();
 			BooksTest books = JAXBUnMarshallerBook.unMarsall(xmlPath);
 
-			for (BookTest book : books.getBooks()) {
+			for (Book book : books.getBooks()) {
 
 				String arg;
 				arg = book.getTitle() + " " + book.getAuthor() + " " + book.getDescription();
@@ -36,7 +36,7 @@ public class Converter {
 			JAXBMarshallerUser.marshallUser();
 			UsersTest users = JAXBUnMarshallerUser.unMarshall(xmlPath);
 
-			for (UserTest user : users.getUsers()) {
+			for (User user : users.getUsers()) {
 
 				String arg;
 				arg = user.getUserName() + " " + user.getPassportNo() + " " + user.getPhone() + " " + user.getEmail()

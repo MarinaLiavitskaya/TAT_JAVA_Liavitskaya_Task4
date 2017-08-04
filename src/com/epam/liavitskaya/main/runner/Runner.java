@@ -3,7 +3,7 @@ package com.epam.liavitskaya.main.runner;
 import java.util.List;
 
 import com.epam.liavitskaya.main.controller.Controller;
-import com.epam.liavitskaya.main.server.Server;
+import com.epam.liavitskaya.main.controller.server.Server;
 
 public class Runner {
 

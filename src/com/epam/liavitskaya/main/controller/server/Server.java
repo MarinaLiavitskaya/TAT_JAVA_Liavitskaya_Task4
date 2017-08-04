@@ -1,4 +1,4 @@
-package com.epam.liavitskaya.main.server;
+package com.epam.liavitskaya.main.controller.server;
 
 import java.util.LinkedList;
 import java.util.List;

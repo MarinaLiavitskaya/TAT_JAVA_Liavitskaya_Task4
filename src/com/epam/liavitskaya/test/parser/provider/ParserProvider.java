@@ -1,8 +1,8 @@
-package com.epam.liavitskaya.main.parser.provider;
+package com.epam.liavitskaya.test.parser.provider;
 
-import com.epam.liavitskaya.main.parser.dom.DOMCommandParser;
-import com.epam.liavitskaya.main.parser.sax.SAXCommandParser;
-import com.epam.liavitskaya.main.parser.stax.StAXCommandParser;
+import com.epam.liavitskaya.test.parser.dom.DOMCommandParser;
+import com.epam.liavitskaya.test.parser.sax.SAXCommandParser;
+import com.epam.liavitskaya.test.parser.stax.StAXCommandParser;
 
 public class ParserProvider {
 

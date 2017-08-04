@@ -1,4 +1,4 @@
-package com.epam.liavitskaya.main.parser.sax;
+package com.epam.liavitskaya.test.parser.sax;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -10,7 +10,7 @@ import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
 import org.xml.sax.helpers.XMLReaderFactory;
 
-import com.epam.liavitskaya.main.parser.Parser;
+import com.epam.liavitskaya.test.parser.Parser;
 
 public class SAXCommandParser implements Parser {
 

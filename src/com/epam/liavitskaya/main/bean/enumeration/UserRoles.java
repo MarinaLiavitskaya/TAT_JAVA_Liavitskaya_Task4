@@ -1,4 +1,4 @@
-package com.epam.liavitskaya.main.enumeration;
+package com.epam.liavitskaya.main.bean.enumeration;
 
 public enum UserRoles {
 
