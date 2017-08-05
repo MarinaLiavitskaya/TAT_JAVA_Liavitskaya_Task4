@@ -14,18 +14,22 @@ import com.epam.liavitskaya.main.service.exception.ServiceException;
 import com.epam.liavitskaya.main.util.RequestParserUtil;
 
 public class LibraryServiceImpl implements LibraryService {
+	
+	final static String INCORRECT_ID_MESSAGE = "incorrect id";
+	final static String ERROR_CANCEL_ORDER_MESSAGE =  "cancel fail";
+	final static String ERROR_CANCEL_ORDER_ONHAND_MESSAGE =  "the book is yours";
 
 	@Override
 	public void addNewBookService(String request) throws ServiceException {
 
 		BookDAO bookDAO = new SQLBookDao();
-		String[] splitRequest = RequestParserUtil.parseRequest(request, 4);
+		String[] splitRequest = RequestParserUtil.parseRequest(request, 4);	// все вынести на уровень команд
 		Book book = new Book(splitRequest[1], splitRequest[2], splitRequest[3], BookStatus.AVAILABLE);
 
 		try {
 			bookDAO.addBook(book);
 		} catch (DAOException e) {
-			throw new ServiceException();
+			throw new ServiceException(e);
 		}
 	}
 
@@ -40,11 +44,11 @@ public class LibraryServiceImpl implements LibraryService {
 		try {
 			int bookCount = bookDAO.rowCount();
 			if (id < 1 || bookCount < id) {
-				throw new ServiceException("incorrect id");
+				throw new ServiceException(INCORRECT_ID_MESSAGE);
 			}
 			bookDAO.editBook(book);
 		} catch (DAOException e) {
-			throw new ServiceException();
+			throw new ServiceException(e);
 		}
 	}
 
@@ -59,11 +63,11 @@ public class LibraryServiceImpl implements LibraryService {
 			int id = Integer.parseInt(splitRequest[2]);
 			int bookCount = bookDAO.rowCount();
 			if (id < 1 || bookCount < id) {
-				throw new ServiceException("incorrect id");
+				throw new ServiceException(INCORRECT_ID_MESSAGE);
 			}
 			bookDAO.editBookDescription(description, id);
 		} catch (DAOException e) {
-			throw new ServiceException();
+			throw new ServiceException(e);
 		}
 	}
 
@@ -76,7 +80,7 @@ public class LibraryServiceImpl implements LibraryService {
 		try {
 			bookFondReview = bookDAO.bookFondReview();
 		} catch (DAOException e) {
-			throw new ServiceException();
+			throw new ServiceException(e);
 		}
 		return bookFondReview;
 	}
@@ -90,7 +94,7 @@ public class LibraryServiceImpl implements LibraryService {
 		try {
 			bookFondReview = bookDAO.availableBookReview();
 		} catch (DAOException e) {
-			throw new ServiceException();
+			throw new ServiceException(e);
 		}
 		return bookFondReview;
 	}
@@ -105,12 +109,12 @@ public class LibraryServiceImpl implements LibraryService {
 			int bookId = Integer.parseInt(splitRequest[1]);
 			int bookCount = bookDAO.rowCount();
 			if (bookId < 1 || bookCount < bookId) {
-				throw new ServiceException("incorrect id");
+				throw new ServiceException(INCORRECT_ID_MESSAGE);
 			}
 			bookDAO.changeBookStatus(BookStatus.ORDERED, bookId);
 			bookDAO.appointBookTo(CurrentUser.getCurrentUser().getUserId(), bookId);
 		} catch (DAOException e) {
-			throw new ServiceException();
+			throw new ServiceException(e);
 		}
 	}
 
@@ -124,16 +128,16 @@ public class LibraryServiceImpl implements LibraryService {
 			int bookId = Integer.parseInt(splitRequest[1]);
 			int bookCount = bookDAO.rowCount();
 			if (bookId < 1 || bookCount < bookId) {
-				throw new ServiceException("incorrect id");
+				throw new ServiceException(INCORRECT_ID_MESSAGE);
 			}
 			String checkBookStatus = bookDAO.checkBookStatus(bookId);
 			if (checkBookStatus.equals("ON_HAND " + CurrentUser.getCurrentUser().getUserId())) {
-				throw new ServiceException("the book is yours");
+				throw new ServiceException(ERROR_CANCEL_ORDER_ONHAND_MESSAGE);
 			}
 			bookDAO.changeBookStatus(BookStatus.AVAILABLE, bookId);
 			bookDAO.removeAppoint(bookId);
 		} catch (DAOException e) {			
-			throw new ServiceException("cancel fail");
+			throw new ServiceException(ERROR_CANCEL_ORDER_MESSAGE);
 		}
 
 	}
@@ -148,11 +152,11 @@ public class LibraryServiceImpl implements LibraryService {
 			int id = Integer.parseInt(splitRequest[1]);
 			int bookCount = bookDAO.rowCount();
 			if (id < 1 || bookCount < id) {
-				throw new ServiceException("incorrect id");
+				throw new ServiceException(INCORRECT_ID_MESSAGE);
 			}
 			bookDAO.changeBookStatus(BookStatus.WRITTEN_OFF, id);
 		} catch (DAOException e) {			
-			throw new ServiceException();
+			throw new ServiceException(e);
 		}
 	}
 
@@ -167,12 +171,11 @@ public class LibraryServiceImpl implements LibraryService {
 			BookStatus bookStatus = BookStatus.valueOf(splitRequest[2]);
 			int bookCount = bookDAO.rowCount();
 			if (id < 1 || bookCount < id) {
-				throw new ServiceException("incorrect id");
+				throw new ServiceException(INCORRECT_ID_MESSAGE);
 			}
 			bookDAO.changeBookStatus(bookStatus, id);
-		} catch (DAOException e) {
-			e.printStackTrace();
-			throw new ServiceException();
+		} catch (DAOException e) {			
+			throw new ServiceException(e);
 		}
 	}
 
@@ -186,11 +189,11 @@ public class LibraryServiceImpl implements LibraryService {
 		try {
 			int bookCount = bookDAO.rowCount();
 			if (id < 1 || bookCount < id) {
-				throw new ServiceException("incorrect id");
+				throw new ServiceException(INCORRECT_ID_MESSAGE);
 			}
 			bookDAO.deleteBook(id);
 		} catch (DAOException e) {
-			throw new ServiceException();
+			throw new ServiceException(e);
 		}
 	}
 

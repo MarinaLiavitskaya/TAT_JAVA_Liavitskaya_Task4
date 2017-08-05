@@ -24,20 +24,22 @@ public class SQLBookDao implements BookDAO {
 	static final String CHANGE_BOOK_APPOINTMENT = "UPDATE books SET user_id = ? WHERE book_id = ?";
 	static final String SHOW_BOOK_STATUS = "SELECT status, user_id FROM books WHERE book_id = ?";	
 	static final String ROW_COUNT = "SELECT COUNT(*) FROM books";
-	static final String DELETE_BOOK = "DELETE FROM books WHERE book_id = ?";
-	
+	static final String DELETE_BOOK = "DELETE FROM books WHERE book_id = ?";	
 	static final String BOOK_ID = "book_id";
-	static final String STATUS = "status";
-	
-	Connection connection = null;
+	static final String BOOK_TITLE =  "title";
+	static final String BOOK_AUTHOR = "author";
+	static final String BOOK_DESCRIPTION = "description";	
+	static final String USER_ID = "user_id";
+	static final String STATUS = "status";	
 
-	public SQLBookDao() {
-		connection = ConnectionManager.getManager().getConnection();
-	}
+//	public SQLBookDao() {
+//		connection = ConnectionManager.getManager().getConnection();
+//	}
 
 	@Override
 	public void addBook(Book book) throws DAOException {
 
+		Connection connection = ConnectionManager.getManager().getConnection();
 		PreparedStatement prStmt = null;
 
 		try {
@@ -58,6 +60,7 @@ public class SQLBookDao implements BookDAO {
 	@Override
 	public void editBook(Book book) throws DAOException {
 
+		Connection connection = ConnectionManager.getManager().getConnection();
 		PreparedStatement prStmt = null;
 
 		try {
@@ -79,6 +82,7 @@ public class SQLBookDao implements BookDAO {
 	@Override
 	public void editBookDescription(String description, int id) throws DAOException {
 
+		Connection connection = ConnectionManager.getManager().getConnection();
 		PreparedStatement prStmt = null;
 
 		try {
@@ -98,6 +102,7 @@ public class SQLBookDao implements BookDAO {
 	@Override
 	public List<Book> bookFondReview() throws DAOException {
 
+		Connection connection = ConnectionManager.getManager().getConnection();
 		PreparedStatement prStmt = null;
 		ResultSet rs = null;
 		Book book = null;
@@ -111,9 +116,9 @@ public class SQLBookDao implements BookDAO {
 			while (rs.next()) {
 				book = new Book();
 				book.setBookId(rs.getInt(BOOK_ID));
-				book.setTitle(rs.getString("title"));
-				book.setAuthor(rs.getString("author"));
-				book.setDescription(rs.getString("description"));
+				book.setTitle(rs.getString(BOOK_TITLE));
+				book.setAuthor(rs.getString(BOOK_AUTHOR));
+				book.setDescription(rs.getString(BOOK_DESCRIPTION));
 				book.setBookStatus(rs.getString(STATUS));
 				bookList.add(book);
 			}
@@ -129,6 +134,7 @@ public class SQLBookDao implements BookDAO {
 	@Override
 	public List<Book> availableBookReview() throws DAOException {
 		
+		Connection connection = ConnectionManager.getManager().getConnection();
 		PreparedStatement prStmt = null;
 		ResultSet rs = null;
 		Book book = null;
@@ -160,6 +166,7 @@ public class SQLBookDao implements BookDAO {
 	@Override
 	public void changeBookStatus(BookStatus bookStatus, int id) throws DAOException {
 
+		Connection connection = ConnectionManager.getManager().getConnection();
 		PreparedStatement prStmt = null;
 
 		try {
@@ -178,6 +185,7 @@ public class SQLBookDao implements BookDAO {
 	@Override
 	public void appointBookTo(int userId, int bookId) throws DAOException {
 
+		Connection connection = ConnectionManager.getManager().getConnection();
 		PreparedStatement prStmt = null;
 
 		try {
@@ -196,6 +204,7 @@ public class SQLBookDao implements BookDAO {
 	@Override
 	public void removeAppoint(int bookId) throws DAOException {
 		
+		Connection connection = ConnectionManager.getManager().getConnection();
 		PreparedStatement prStmt = null;
 
 		try {
@@ -214,6 +223,7 @@ public class SQLBookDao implements BookDAO {
 	@Override
 	public void deleteBook(int id) throws DAOException {
 
+		Connection connection = ConnectionManager.getManager().getConnection();
 		PreparedStatement prStmt = null;
 
 		try {
@@ -231,6 +241,7 @@ public class SQLBookDao implements BookDAO {
 	@Override
 	public int rowCount() throws DAOException {
 
+		Connection connection = ConnectionManager.getManager().getConnection();
 		PreparedStatement prStmt = null;
 		ResultSet rs = null;
 		int count;
@@ -252,6 +263,7 @@ public class SQLBookDao implements BookDAO {
 	@Override
 	public String checkBookStatus(int id) throws DAOException {
 
+		Connection connection = ConnectionManager.getManager().getConnection();
 		PreparedStatement prStmt = null;
 		ResultSet rs = null;
 		BookStatus status;
@@ -263,7 +275,7 @@ public class SQLBookDao implements BookDAO {
 			rs = prStmt.executeQuery();
 			rs.next();
 			status = BookStatus.valueOf(rs.getString(STATUS));
-			userId = rs.getInt("user_id");			
+			userId = rs.getInt(USER_ID);			
 			
 		} catch (SQLException e) {
 			throw new DAOException(e.getMessage());

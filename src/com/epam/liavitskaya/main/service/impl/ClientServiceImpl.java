@@ -23,6 +23,13 @@ public class ClientServiceImpl implements ClientService {
 
 	final static String INCORRECT_SIGNIN_INPUT_MESSAGE = "incorrect sign in input";
 	final static String INCORRECT_ID_MESSAGE = "incorrect id";
+	final static String BLOCKED_MESSAGE = "you are blocked, contact your administrator";
+	final static String INCORRECT_INPUT_MESSAGE = "incorrect input";
+	final static String INCORRECT_LOGIN_MESSAGE = "invalid login";
+	final static String INCORRECT_PASSWORD_MESSAGE = "invalid password";
+	final static String ERROR_REGISTRATION_DATA_MESSAGE = "registration data already exists";
+	final static String ERROR_PASSWORD_MESSAGE = "Error during is Password Original check";
+	final static String ERROR_LOGIN_MESSAGE = "Error during is Login Original check";	
 
 	final static Logger logger = Logger.getLogger(ClientServiceImpl.class);
 
@@ -41,7 +48,7 @@ public class ClientServiceImpl implements ClientService {
 			DAOFactory daoFactory = DAOFactory.getInstance();
 			UserDAO userDAO = daoFactory.getUserDAO();
 			if (UserStatus.INACTIVE.equals(userDAO.checkUserStatus(login))) {
-				throw new ServiceException("you are blocked contact your administrator");
+				throw new ServiceException(BLOCKED_MESSAGE);
 			}
 			userDAO.singIn(login, password);
 
@@ -54,7 +61,7 @@ public class ClientServiceImpl implements ClientService {
 	public void singOutService(String login) throws ServiceException {
 
 		if (login == null || login.isEmpty() || !ValidatorUtil.isLoginValid(login)) {
-			throw new ServiceException("incorrect input");
+			throw new ServiceException(INCORRECT_INPUT_MESSAGE);
 		}
 
 		try {
@@ -62,7 +69,7 @@ public class ClientServiceImpl implements ClientService {
 			UserDAO userDAO = daoFactory.getUserDAO();
 			userDAO.singOut(login);
 		} catch (DAOException e) {
-			throw new ServiceException();
+			throw new ServiceException(e);
 		}
 	}
 
@@ -75,17 +82,17 @@ public class ClientServiceImpl implements ClientService {
 		String password = splitRequest[7];
 
 		if (login == null || login.isEmpty() || !ValidatorUtil.isLoginValid(login)) {
-			throw new ServiceException("invalid login");
+			throw new ServiceException(ERROR_LOGIN_MESSAGE);
 		}
 
 		if (password == null || password.isEmpty() || !ValidatorUtil.isPasswordValid(password)) {
-			throw new ServiceException("invalid password");
+			throw new ServiceException(ERROR_PASSWORD_MESSAGE);
 		}
 
 		String encryptPassword = PasswordEncryptorUtil.encryptPassword(splitRequest[7]);
 
 		if (isPasswordExist(encryptPassword) || isLoginExist(login)) {
-			throw new ServiceException("registration data already exists");
+			throw new ServiceException(ERROR_REGISTRATION_DATA_MESSAGE);
 		}
 		User user = new User(splitRequest[1], splitRequest[2], splitRequest[3], splitRequest[4],
 				UserRoles.valueOf(splitRequest[5]), splitRequest[6], encryptPassword,
@@ -93,7 +100,7 @@ public class ClientServiceImpl implements ClientService {
 		try {
 			userDAO.register(user);
 		} catch (DAOException e) {
-			throw new ServiceException();
+			throw new ServiceException(e);
 		}
 	}
 
@@ -108,11 +115,11 @@ public class ClientServiceImpl implements ClientService {
 			String login = splitRequest[1];
 			boolean loginExist = isLoginExist(login);
 			if (!loginExist) {
-				throw new ServiceException("invalid login");
+				throw new ServiceException(ERROR_LOGIN_MESSAGE);
 			}
 			userProfile = userDAO.getProfile(login);
 		} catch (DAOException e) {
-			throw new ServiceException();
+			throw new ServiceException(e);
 		}
 		return userProfile;
 	}
@@ -134,7 +141,7 @@ public class ClientServiceImpl implements ClientService {
 
 			userProfile = userDAO.getProfileById(id);
 		} catch (DAOException e) {
-			throw new ServiceException();
+			throw new ServiceException(e);
 		}
 		return userProfile;
 	}
@@ -147,7 +154,7 @@ public class ClientServiceImpl implements ClientService {
 			User user = buildEditedUser(request, userDAO);
 			userDAO.updateProfile(user, user.getUserId());
 		} catch (DAOException e) {
-			throw new ServiceException();
+			throw new ServiceException(e);
 		}
 	}
 
@@ -166,7 +173,7 @@ public class ClientServiceImpl implements ClientService {
 			}
 			userDAO.changeUserStatus(userStatus, id);
 		} catch (DAOException e) {
-			throw new ServiceException();
+			throw new ServiceException(e);
 		}
 	}
 
@@ -187,7 +194,7 @@ public class ClientServiceImpl implements ClientService {
 			userDAO.changeUserRole(userRole, id);
 
 		} catch (DAOException e) {
-			throw new ServiceException();
+			throw new ServiceException(e);
 		}
 	}
 
@@ -219,7 +226,7 @@ public class ClientServiceImpl implements ClientService {
 			}
 			userDAO.deleteUser(id);
 		} catch (DAOException e) {
-			throw new ServiceException();
+			throw new ServiceException(e);
 		}
 	}
 
@@ -231,7 +238,7 @@ public class ClientServiceImpl implements ClientService {
 		try {
 			fetchAllLogins = userDAO.showAllLogins();
 		} catch (DAOException e) {
-			throw new ServiceException();
+			throw new ServiceException(e);
 		}
 		return fetchAllLogins;
 	}
@@ -244,7 +251,7 @@ public class ClientServiceImpl implements ClientService {
 		try {
 			fetchAllPasswords = userDAO.showAllPasswords();
 		} catch (DAOException e) {
-			throw new ServiceException();
+			throw new ServiceException(e);
 		}
 		return fetchAllPasswords;
 	}
@@ -262,11 +269,11 @@ public class ClientServiceImpl implements ClientService {
 			throw new ServiceException(INCORRECT_ID_MESSAGE);
 		}
 		if (login == null || login.isEmpty() || !ValidatorUtil.isLoginValid(login)) {
-			throw new ServiceException("invalid login");
+			throw new ServiceException(ERROR_LOGIN_MESSAGE);
 		}
 
 		if (password == null || password.isEmpty() || !ValidatorUtil.isPasswordValid(password)) {
-			throw new ServiceException("invalid password");
+			throw new ServiceException(ERROR_PASSWORD_MESSAGE);
 		}
 
 		String encryptPassword = PasswordEncryptorUtil.encryptPassword(splitRequest[7]);
@@ -285,8 +292,7 @@ public class ClientServiceImpl implements ClientService {
 		try {
 			fetchAllPasswords = clientService.fetchAllPasswordsService();
 		} catch (ServiceException e) {
-			logger.debug("Error during is Password Original check", e);
-			e.printStackTrace();
+			logger.debug(ERROR_PASSWORD_MESSAGE, e);			
 		}
 		return fetchAllPasswords.contains(password);
 	}
@@ -300,8 +306,7 @@ public class ClientServiceImpl implements ClientService {
 		try {
 			fetchAllLogins = clientService.fetchAllLoginsService();
 		} catch (ServiceException e) {
-			logger.debug("Error during is Login Original check", e);
-			e.printStackTrace();
+			logger.debug(ERROR_LOGIN_MESSAGE, e);			
 		}
 		return fetchAllLogins.contains(login);
 	}

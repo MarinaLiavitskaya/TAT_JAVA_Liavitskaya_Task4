@@ -10,6 +10,11 @@ import com.epam.liavitskaya.main.service.exception.ServiceException;
 import com.epam.liavitskaya.main.service.provider.ServiceProvider;
 
 public class AddBook implements Command {
+	
+	private static final String ERROR_MESSAGE_UNAUTHORIZED = "please login";
+	private static final String ERROR_MESSAGE_NO_PERMISSION = "you have no permission for this operation";	
+	private static final String SUCCESSFUL_RESPONSE = "New book is added";
+	private static final String FAIL_RESPONSE = "Error during add new book procedure";
 
 	final Logger logger = Logger.getLogger(AddBook.class);
 
@@ -20,19 +25,19 @@ public class AddBook implements Command {
 
 		try {
 			if (UserRoles.UNAUTHORIZED.name().equals(CurrentUser.getCurrentUser().getUserRole())) {
-				throw new ServiceException("please login");
+				throw new ServiceException(ERROR_MESSAGE_UNAUTHORIZED);
 			}
 			if (UserRoles.USER.name().equals(CurrentUser.getCurrentUser().getUserRole())) {
-				throw new ServiceException("you have no permission for this operation");
+				throw new ServiceException(ERROR_MESSAGE_NO_PERMISSION);
 			}
 			ServiceProvider serviceProvider = ServiceProvider.getInstance();
 			LibraryService libraryService = serviceProvider.getLibraryServiceImpl();
 			libraryService.addNewBookService(request);
-			response = "New book is added";
+			response = SUCCESSFUL_RESPONSE;
 
 		} catch (ServiceException e) {
-			logger.error("Error during add new book procedure", e);
-			response = "Error during add new book procedure";
+			logger.error(FAIL_RESPONSE, e);
+			response = FAIL_RESPONSE;
 		}
 		return response;
 	}
